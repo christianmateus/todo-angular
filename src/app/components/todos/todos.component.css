@@ -1,0 +1,131 @@
+/* Variáveis para cores */
+* {
+    --main-blue: #335c67;
+    --light-yellow: #fff3b0;
+    --strong-yellow: #e09f3e;
+    --red: #9e2a2b;
+    --dark-red: #540b0e;
+}
+
+.todos {
+    margin: 20px auto;
+    width: 70%;
+    min-width: 300px;
+    border: 1px solid var(--main-blue);
+    border-radius: 5px;
+}
+
+.todo {
+    display: flex;
+    padding: 10px 35px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+header {
+    background-color: var(--main-blue);
+    padding: 10px 0;
+}
+
+h1 {
+    text-align: center;
+    color: #eee;
+    font-family: 'Helvetica';
+    font-weight: bold;
+    font-size: 15pt;
+}
+
+.todo:nth-child(even) {
+    background-color: #eee;
+}
+
+.todo:last-of-type {
+    border-bottom: 0;
+}
+
+.todo .id {
+    flex: 1 1 50px;
+}
+
+.todo .content {
+    flex: 1 1 100%;
+}
+
+.todo.done .content {
+    text-decoration: line-through;
+}
+
+.todo-input {
+    display: block;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px 15px;
+    appearance: none;
+    border: none;
+    background-color: #F3F3F3;
+    margin-top: 15px;
+    font-size: 1em;
+    outline: none;
+}
+
+.todo-submit {
+    display: block;
+    width: 80%;
+    max-width: 200px;
+    appearance: none;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background-color: var(--strong-yellow);
+    color: #fff;
+    margin: 15px auto;
+    padding: 4px 0;
+    font-size: 10pt;
+    font-weight: 700;
+}
+
+.deleteBtn {
+    box-shadow: inset 0px 1px 0px 0px #cf866c;
+    background-color: #9e2a2b;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 13px;
+    padding: 6px 12px;
+    max-height: 30px;
+}
+
+.deleteBtn:hover {
+    background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+    background-color: #bc3315;
+}
+
+.deleteBtn:active {
+    position: relative;
+    top: 1px;
+}
+
+footer {
+    height: 20px;
+    margin-top: 15px;
+    background-color: var(--main-blue);
+}
+
+/* Responsive */
+
+@media screen and (max-width: 380px) {
+    .deleteBtn {
+        font-size: 9pt;
+        padding: 4px 10px;
+    }
+
+    .todo-submit {
+        max-width: 140px;
+    }
+
+    .todo-input {
+        padding: 6px 12px;
+    }
+}
