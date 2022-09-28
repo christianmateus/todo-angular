@@ -3,11 +3,12 @@
         <h1>Lista de tarefas</h1>
     </header>
     <form (submit)="addTodo()">
-        <input type="text" name="inputTodo" placeholder="Digite aqui..." class="todo-input" [(ngModel)]="inputTodo">
+        <input required type="text" name="inputTodo" placeholder="Digite uma nova tarefa..." class="todo-input"
+            [(ngModel)]="inputTodo">
         <input type="submit" value="Adicionar tarefa" class="todo-submit">
     </form>
     <div *ngFor="let todo of todos; let i = index;" class="todo {{ (todo.completed ? 'done' : '') }}">
-        <div class="id">{{i}}</div>
+        <div class="id">{{i+1}}</div>
         <div class="content" (click)="toggleDone(i)">{{todo.content}}</div>
         <button class="deleteBtn" (click)="deleteTodo(i)">Deletar</button>
     </div>

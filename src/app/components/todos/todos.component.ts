@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/models/Todo';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-todos',
@@ -7,17 +8,24 @@ import { Todo } from 'src/app/models/Todo';
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
-
   todos!: Todo[];
   inputTodo: string = "";
+  // chave: number = this.todos.length;
 
-  constructor() { }
+  constructor(public storage: LocalStorageService) { }
 
   ngOnInit(): void {
-    this.todos = [{
-      content: "Todo item",
+    this.todos = [{ // Array de todas as tarefas para listar
+      content: "Tarefa 01",
       completed: false
-    }
+    }, {
+      content: "Tarefa 02",
+      completed: true
+    },
+      //{  // Essa linha abaixo deveria puxar a key do localStorage e imprimir o valor
+      //   content: this.storage.get(String(this.todos.length)), // Não descobri por que não funciona
+      //   completed: false
+      // },
     ]
   }
 
@@ -36,6 +44,7 @@ export class TodosComponent implements OnInit {
       completed: false
     });
 
+    this.storage.set(String(this.todos.length), this.inputTodo);
     this.inputTodo = "" // Limpa o input após adicionar
   }
 
